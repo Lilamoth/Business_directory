@@ -1,0 +1,175 @@
+.user-dashboard {
+  padding: 2rem;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #0f172a, #1e293b);
+  color: #ffffff;
+}
+
+.user-dashboard h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-bar {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar input {
+  padding: 0.6rem 1rem;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+.business-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.business-card {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.3s ease;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}
+
+.business-card:hover {
+  transform: scale(1.02);
+  background: #273549;
+}
+
+.biz-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background: #3b82f6;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+
+.biz-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.biz-info p {
+  margin-top: 0.3rem;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.tag {
+  display: inline-block;
+  background: #6366f1;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  color: white;
+  border-radius: 20px;
+  margin-top: 0.6rem;
+}
+
+.biz-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.biz-actions button {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  transition: background 0.2s ease;
+}
+
+.biz-actions button:hover {
+  background: #2563eb;
+}
+
+.msg-btn {
+  background: #10b981;
+}
+
+.msg-btn:hover {
+  background: #059669;
+}
+
+/* Message Modal */
+.message-modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.message-box {
+  background: #1e293b;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.message-box h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.message-box textarea {
+  width: 100%;
+  padding: 0.8rem;
+  background: #0f172a;
+  border-radius: 6px;
+  border: none;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.message-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.message-buttons button {
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.message-buttons button:first-child {
+  background: #3b82f6;
+  color: white;
+}
+
+.message-buttons button:last-child {
+  background: #ef4444;
+  color: white;
+}

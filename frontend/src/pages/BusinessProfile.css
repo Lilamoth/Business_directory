@@ -1,0 +1,88 @@
+.profile-container {
+    background: #1f2937;
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .profile-view, .profile-edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .profile-view h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #93c5fd;
+  }
+  
+  input, textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    background-color: #374151;
+    color: white;
+  }
+  
+  textarea {
+    min-height: 80px;
+    resize: vertical;
+  }
+  
+  .btn-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .btn.edit {
+    background-color: #3b82f6;
+    color: white;
+  }
+  
+  .btn.delete {
+    background-color: #ef4444;
+    color: white;
+  }
+  
+  .btn.save {
+    background-color: #10b981;
+    color: white;
+  }
+  
+  .btn.cancel {
+    background-color: #6b7280;
+    color: white;
+  }
+  
+  .btn:hover {
+    opacity: 0.85;
+  }
+  
+  .message {
+    margin-top: 1rem;
+    text-align: center;
+    color: #a5f3fc;
+    font-weight: bold;
+  }
+  
+  .loading-text {
+    text-align: center;
+    padding: 2rem;
+    font-style: italic;
+    color: #9ca3af;
+  }
+  

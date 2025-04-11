@@ -1,0 +1,102 @@
+.message-page {
+  background: linear-gradient(to bottom, #0f172a, #1e293b);
+  color: white;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.message-box {
+  background-color: #1e293b;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.message-box select,
+.message-box textarea {
+  width: 100%;
+  background-color: #334155;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.send-button {
+  background: linear-gradient(to right, #4f46e5, #3b82f6);
+  border: none;
+  color: white;
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background: linear-gradient(to right, #3b82f6, #4f46e5);
+}
+
+.success-text {
+  color: #22c55e;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.message-columns {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.message-section {
+  background-color: #1e293b;
+  padding: 1.2rem;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.message-section h3 {
+  color: #60a5fa;
+  margin-bottom: 1rem;
+}
+
+.message-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  background-color: #334155;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.message-card.sent {
+  background-color: #3b3f51;
+}
+
+.avatar {
+  background-color: #60a5fa;
+  border-radius: 9999px;
+  width: 40px;
+  height: 40px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}

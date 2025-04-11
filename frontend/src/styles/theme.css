@@ -1,0 +1,158 @@
+body {
+  background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
+  font-family: 'Poppins', sans-serif; /* Updated font for modern look */
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem; /* Adjusted padding */
+}
+
+.card {
+  background: #1e1e2f; /* Darker card background */
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background-color: #6366f1;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px; /* Slightly rounded corners */
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem; /* Adjusted font size */
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #4f46e5;
+}
+
+input, textarea, select {
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  background-color: #3c3c4f;
+  color: white;
+}
+
+h1, h2, h3 {
+  color: #f1f1f1;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  color: #cfcfcf;
+}
+
+.dashboard-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 1.5rem; /* Reduced padding for compact layout */
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  color: #a3a3ff; /* Updated header text color */
+}
+
+.section {
+  margin-top: 2rem;
+}
+
+.section-title {
+  font-size: 1.8rem; /* Increased font size */
+  font-weight: bold;
+  background: linear-gradient(90deg, #8e2de2, #4a00e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Added subtle border */
+}
+
+.glow-btn {
+  background: #6a5acd;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(106, 90, 205, 0.6);
+  font-size: 0.95rem; /* Adjusted font size */
+  transition: all 0.3s ease;
+}
+
+.glow-btn:hover {
+  background: #836fff;
+  box-shadow: 0 0 20px rgba(106, 90, 205, 1);
+}
+
+.glow-btn.small {
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.85rem;
+}
+
+.sidebar {
+  background: #161625; /* Sidebar background color */
+  color: #fff; /* Sidebar text color */
+  width: 250px; /* Fixed width */
+  height: 100vh; /* Full height */
+  position: fixed; /* Fixed position */
+  padding: 1rem; /* Padding inside sidebar */
+}
+
+.sidebar a {
+  display: block;
+  color: #a3a3ff; /* Link color */
+  text-decoration: none;
+  margin: 1rem 0;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.sidebar a:hover {
+  color: #fff; /* Hover effect for links */
+}
+
+.sidebar .active {
+  color: #fff; /* Active link color */
+  font-weight: bold;
+}
+
+.hide-products {
+  color: #a3a3ff; /* Text color for "Hide Products" */
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
+
+.no-data {
+  color: #ccc;
+  text-align: center;
+  font-style: italic;
+  font-size: 1rem; /* Adjusted font size */
+}

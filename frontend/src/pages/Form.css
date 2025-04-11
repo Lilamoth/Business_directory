@@ -1,0 +1,119 @@
+/* ====== GLOBAL FORM WRAPPER ====== */
+.form-page {
+
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* ====== FORM BOX ====== */
+.form-box {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 3rem;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+  max-width: 480px;
+  width: 100%;
+  color: white;
+}
+
+/* ====== TITLES & TEXT ====== */
+.form-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* ====== ROLE SWITCH / TOGGLE ====== */
+.role-switch,
+.role-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.role-switch button,
+.role-toggle button {
+  background: transparent;
+  border: 2px solid #6366f1;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.role-switch button.active,
+.role-toggle button.active,
+.role-switch button:hover,
+.role-toggle button:hover {
+  background-color: #6366f1;
+  color: white;
+}
+
+/* ====== FORM ELEMENTS ====== */
+form input,
+form textarea {
+  width: 100%;
+  background-color: #1f2937;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem;
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+/* ====== BUTTON ====== */
+button,
+.form-submit {
+  width: 100%;
+  padding: 0.8rem;
+  background: linear-gradient(to right, #4f46e5, #3b82f6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+button:hover,
+.form-submit:hover {
+  background: linear-gradient(to right, #3b82f6, #4f46e5);
+}
+
+/* ====== FEEDBACK MESSAGES ====== */
+.form-error {
+  color: #f87171;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.form-success {
+  color: #34d399;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* ====== FOOTER / NAV LINK ====== */
+.form-footer {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+
+.form-footer a {
+  color: #60a5fa;
+  text-decoration: none;
+}
