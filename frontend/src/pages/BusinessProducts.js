@@ -1,25 +1,25 @@
+// src/pages/BusinessProducts.js
 import React from 'react';
+import './BusinessProducts.css';
 
 const BusinessProducts = ({ products }) => {
+  if (!products || products.length === 0) {
+    return <p className="no-products">No products found.</p>;
+  }
+
   return (
-    <ul className="grid gap-4">
+    <div className="products-grid">
       {products.map((product) => (
-        <li
-          key={product._id}
-          className="bg-gray-50 border border-gray-200 rounded-lg p-4 shadow-sm"
-        >
-          <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
-          <p className="text-gray-600">{product.description}</p>
-          <p className="text-green-700 font-bold mt-1">${parseFloat(product.price).toFixed(2)}</p>
-          <p className="text-sm text-gray-600 mt-1">
-            Status:{" "}
-            <span className={product.available ? "text-green-600" : "text-red-600"}>
-              {product.available ? "Available" : "Unavailable"}
-            </span>
+        <div key={product._id} className="product-card">
+          <h3>{product.name}</h3>
+          <p>{product.description}</p>
+          <p><strong>${parseFloat(product.price).toFixed(2)}</strong></p>
+          <p className={product.available ? 'available' : 'unavailable'}>
+            {product.available ? '✅ Available' : '❌ Unavailable'}
           </p>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };
 

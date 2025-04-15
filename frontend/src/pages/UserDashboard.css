@@ -173,3 +173,160 @@
   background: #ef4444;
   color: white;
 }
+
+.user-dashboard {
+  padding: 2rem;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.search-bar {
+  margin: 1rem 0 2rem;
+  text-align: center;
+}
+
+.search-bar input {
+  width: 40%;
+  padding: 0.75rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  background: #1e1e2f;
+  color: #fff;
+}
+
+.business-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.business-card {
+  background: #1f2937;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 230px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s;
+}
+
+.business-card:hover {
+  transform: scale(1.03);
+}
+
+.biz-icon {
+  background: #3b82f6;
+  color: white;
+  width: 40px;
+  height: 40px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 0.75rem;
+}
+
+.biz-info h3 {
+  margin: 0;
+}
+
+.biz-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.biz-actions button {
+  background-color: #3b82f6;
+  border: none;
+  color: white;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.biz-actions .msg-btn {
+  background-color: #8b5cf6;
+}
+
+.product-list-section {
+  background-color: #111827;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.product-card {
+  background: #1e293b;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 200px;
+  color: white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.message-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-box {
+  background: #1e1e2f;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 400px;
+}
+
+.message-box textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #2c2c3e;
+  color: white;
+  border: none;
+  margin: 1rem 0;
+}
+
+.message-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.message-buttons button {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.message-buttons button:first-child {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.message-buttons button:last-child {
+  background-color: #ef4444;
+  color: white;
+}

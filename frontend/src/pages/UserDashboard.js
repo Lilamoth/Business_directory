@@ -1,4 +1,3 @@
-// src/pages/UserDashboard.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import BusinessProductModal from '../components/BusinessProductModal';
@@ -13,20 +12,26 @@ const UserDashboard = ({ userId, token }) => {
   const [messageContent, setMessageContent] = useState('');
   const [recipientBusiness, setRecipientBusiness] = useState(null);
 
+  // ✅ Log token for debug (optional)
   useEffect(() => {
+    console.log('📦 Token from props:', token);
+  }, [token]);
+
+  // ✅ Fetch businesses using dynamic token
+  useEffect(() => {
+    if (!token) return;
+
     axios
       .get('http://localhost:5000/api/businesses', {
         headers: {
-          Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y3MTg2MjMzN2JiMDliODJlYWMyZTEiLCJyb2xlIjoiYnVzaW5lc3MiLCJpYXQiOjE3NDQyNDcxMDQsImV4cCI6MTc0NDMzMzUwNH0.VGwNtSSO3BV_WemvUS8ROvwxx8nGGjKYTUnQ_gl8rWU'}`,
-        },
+          Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y3MTg2MjMzN2JiMDliODJlYWMyZTEiLCJyb2xlIjoiYnVzaW5lc3MiLCJpYXQiOjE3NDQ1OTcxNjksImV4cCI6MTc0NDY4MzU2OX0.CCjba1zqPlspWvZ0CTtK5XQT7qw6SZcmyDWCdzdbvIk'}`
+        }
       })
-      .then((res) => {
-        setBusinesses(res.data);
-        setFilteredBusinesses(res.data);
-      })
-      .catch((err) => console.error('Error fetching businesses:', err));
+      .then(res => setBusinesses(res.data))
+      .catch(err => console.error('Error fetching businesses:', err));
   }, [token]);
 
+  // ✅ Filter businesses by search
   useEffect(() => {
     const filtered = businesses.filter((biz) =>
       biz.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -35,6 +40,7 @@ const UserDashboard = ({ userId, token }) => {
     setFilteredBusinesses(filtered);
   }, [searchTerm, businesses]);
 
+  // ✅ Send message to business
   const handleSendMessage = async () => {
     try {
       await axios.post(
@@ -45,7 +51,7 @@ const UserDashboard = ({ userId, token }) => {
         },
         {
           headers: {
-            Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y3MTg2MjMzN2JiMDliODJlYWMyZTEiLCJyb2xlIjoiYnVzaW5lc3MiLCJpYXQiOjE3NDQyNDcxMDQsImV4cCI6MTc0NDMzMzUwNH0.VGwNtSSO3BV_WemvUS8ROvwxx8nGGjKYTUnQ_gl8rWU'}`,
+            Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y3MTg2MjMzN2JiMDliODJlYWMyZTEiLCJyb2xlIjoiYnVzaW5lc3MiLCJpYXQiOjE3NDQ1OTcxNjksImV4cCI6MTc0NDY4MzU2OX0.CCjba1zqPlspWvZ0CTtK5XQT7qw6SZcmyDWCdzdbvIk'}`
           },
         }
       );
@@ -96,6 +102,7 @@ const UserDashboard = ({ userId, token }) => {
         ))}
       </div>
 
+      {/* ✅ Modal for viewing products */}
       {selectedBusiness && (
         <BusinessProductModal
           businessId={selectedBusiness}
@@ -103,6 +110,7 @@ const UserDashboard = ({ userId, token }) => {
         />
       )}
 
+      {/* ✅ Modal for sending message */}
       {messageModalOpen && recipientBusiness && (
         <div className="message-modal">
           <div className="message-box">

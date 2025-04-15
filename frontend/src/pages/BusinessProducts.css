@@ -1,0 +1,47 @@
+/* src/pages/BusinessProducts.css */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .product-card {
+    background-color: #1f2937;
+    border-radius: 12px;
+    padding: 1.2rem;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+    color: #e5e7eb;
+    transition: 0.3s;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+  }
+  
+  .product-card h3 {
+    font-size: 1.2rem;
+    color: #60a5fa;
+    margin-bottom: 0.5rem;
+  }
+  
+  .product-card p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+  }
+  
+  .available {
+    color: #22c55e;
+  }
+  
+  .unavailable {
+    color: #f87171;
+  }
+  
+  .no-products {
+    text-align: center;
+    font-style: italic;
+    color: #999;
+  }
+  
