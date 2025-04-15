@@ -1,46 +1,40 @@
 // src/components/Navbar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css'; // Optional: you can remove if unused
-import '../styles/theme.css'; // Make sure theme styles are applied
+import './Navbar.css';
 
 const Navbar = ({ token, role, onLogout }) => {
   return (
-    <nav className="card dashboard-header" style={{ background: '#111', padding: '1rem 2rem', borderRadius: '0 0 12px 12px' }}>
-      <h2 style={{ fontSize: '1.4rem', fontWeight: 'bold', color: '#fff' }}>BizDirectory</h2>
-      <ul style={{ display: 'flex', gap: '1.5rem', listStyle: 'none', margin: 0, padding: 0 }}>
+    <nav className="navbar">
+      <div className="navbar-left">
+        <h1 className="logo">BizDirectory</h1>
+      </div>
+
+      <div className="navbar-right">
         {!token && (
           <>
-            <li><Link to="/login" className="glow-btn small">Login</Link></li>
-            <li><Link to="/signup" className="glow-btn small">Sign Up</Link></li>
+            <Link to="/login" className="nav-btn">Login</Link>
+            <Link to="/signup" className="nav-btn">Sign Up</Link>
           </>
         )}
 
         {token && role === 'business' && (
           <>
-            <li><Link to="/dashboard" className="glow-btn small">Dashboard</Link></li>
-            <li><Link to="/messages" className="glow-btn small">Messages</Link></li>
-            <li><Link to="/activity-log" className="glow-btn small">Activity Log</Link></li>
-            <li>
-              <button onClick={onLogout} className="btn" style={{ backgroundColor: '#e11d48' }}>
-                Logout
-              </button>
-            </li>
+            <Link to="/dashboard" className="nav-btn">Dashboard</Link>
+            <Link to="/messages" className="nav-btn">Messages</Link>
+            <Link to="/activity-log" className="nav-btn">Activity Log</Link>
+            <button onClick={onLogout} className="logout-btn">Logout</button>
           </>
         )}
 
         {token && role === 'user' && (
           <>
-            <li><Link to="/user-dashboard" className="glow-btn small">Dashboard</Link></li>
-            <li><Link to="/messages" className="glow-btn small">Messages</Link></li>
-            <li>
-              <button onClick={onLogout} className="btn" style={{ backgroundColor: '#e11d48' }}>
-                Logout
-              </button>
-            </li>
+            <Link to="/user-dashboard" className="nav-btn">Dashboard</Link>
+            <Link to="/messages" className="nav-btn">Messages</Link>
+            <button onClick={onLogout} className="logout-btn">Logout</button>
           </>
         )}
-      </ul>
+      </div>
     </nav>
   );
 };

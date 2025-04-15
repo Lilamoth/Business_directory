@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './BusinessProfile.css'; // 👈 We’ll add new styles here
+import './BusinessProfile.css';
 
 const BusinessProfile = ({ businessId, token, onProfileUpdated }) => {
   const [business, setBusiness] = useState(null);
@@ -13,11 +13,12 @@ const BusinessProfile = ({ businessId, token, onProfileUpdated }) => {
   });
   const [message, setMessage] = useState('');
 
+  // ✅ Fetch business profile on mount
   useEffect(() => {
     const fetchBusiness = async () => {
       try {
         const res = await axios.get(`http://localhost:5000/api/businesses/${businessId}`, {
-          headers: { Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y3MTg2MjMzN2JiMDliODJlYWMyZTEiLCJyb2xlIjoiYnVzaW5lc3MiLCJpYXQiOjE3NDQyNDcxMDQsImV4cCI6MTc0NDMzMzUwNH0.VGwNtSSO3BV_WemvUS8ROvwxx8nGGjKYTUnQ_gl8rWU'}` }
+          headers: { Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y3MTg2MjMzN2JiMDliODJlYWMyZTEiLCJyb2xlIjoiYnVzaW5lc3MiLCJpYXQiOjE3NDQ0MzAyMzUsImV4cCI6MTc0NDUxNjYzNX0.yTJ2yeJsBA6AfVjeqM7e_7OOgoEytWit53mG1H9Lujo'}` }
         });
         setBusiness(res.data);
         setFormData({
@@ -27,46 +28,48 @@ const BusinessProfile = ({ businessId, token, onProfileUpdated }) => {
           description: res.data.description || ''
         });
       } catch (err) {
-        console.error('Error fetching business:', err);
+        console.error('❌ Error fetching business:', err);
       }
     };
-    fetchBusiness();
+    if (businessId && token) {
+      fetchBusiness();
+    }
   }, [businessId, token]);
 
+  // ✅ Handle form input change
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  // ✅ Handle update
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.put(`http://localhost:5000/api/businesses/${businessId}`, formData, {
-        headers: { Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y3MTg2MjMzN2JiMDliODJlYWMyZTEiLCJyb2xlIjoiYnVzaW5lc3MiLCJpYXQiOjE3NDQyNDcxMDQsImV4cCI6MTc0NDMzMzUwNH0.VGwNtSSO3BV_WemvUS8ROvwxx8nGGjKYTUnQ_gl8rWU'}` }
+        headers: { Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y3MTg2MjMzN2JiMDliODJlYWMyZTEiLCJyb2xlIjoiYnVzaW5lc3MiLCJpYXQiOjE3NDQ1OTcxNjksImV4cCI6MTc0NDY4MzU2OX0.CCjba1zqPlspWvZ0CTtK5XQT7qw6SZcmyDWCdzdbvIk'}` }
       });
       setBusiness(res.data);
       setEditing(false);
       setMessage('✅ Profile updated!');
-      onProfileUpdated && onProfileUpdated(); // refresh products
+      onProfileUpdated && onProfileUpdated();
     } catch (err) {
-      console.error('Update error:', err);
+      console.error('❌ Update error:', err);
       setMessage('❌ Failed to update profile');
     }
   };
 
+  // ✅ Handle delete
   const handleDelete = async () => {
     if (!window.confirm('Delete your business profile?')) return;
     try {
       await axios.delete(`http://localhost:5000/api/businesses/${businessId}`, {
-        headers: { Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y3MTg2MjMzN2JiMDliODJlYWMyZTEiLCJyb2xlIjoiYnVzaW5lc3MiLCJpYXQiOjE3NDQyNDcxMDQsImV4cCI6MTc0NDMzMzUwNH0.VGwNtSSO3BV_WemvUS8ROvwxx8nGGjKYTUnQ_gl8rWU'}` }
+        headers: { Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y3MTg2MjMzN2JiMDliODJlYWMyZTEiLCJyb2xlIjoiYnVzaW5lc3MiLCJpYXQiOjE3NDQ1OTcxNjksImV4cCI6MTc0NDY4MzU2OX0.CCjba1zqPlspWvZ0CTtK5XQT7qw6SZcmyDWCdzdbvIk'}` }
       });
       alert('✅ Profile deleted. Logging out...');
-      window.location.reload();
+      window.location.reload(); // or redirect to login page
     } catch (err) {
-      console.error('Delete error:', err);
+      console.error('❌ Delete error:', err);
       alert('❌ Failed to delete profile');
     }
   };

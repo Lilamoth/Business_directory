@@ -9,7 +9,6 @@ import Navbar from './components/Navbar';
 import MessagingPage from './pages/MessagingPage';
 import Home from './pages/Home';
 import './styles/theme.css';
-import ActivityLog from './pages/ActivityLog';
 import ActivityLogPage from './pages/ActivityLogPage';
 
 
@@ -19,7 +18,9 @@ function App() {
   const [role, setRole] = useState(null);
 
   const handleLogin = (id, authToken, userRole) => {
-    setUserId(id);
+    // ✅ Strip any accidental "b_" or "u_" prefix before saving
+    const cleanId = id.replace(/^b_/, '').replace(/^u_/, '');
+    setUserId(cleanId);
     setToken(authToken);
     setRole(userRole);
   };
@@ -51,10 +52,10 @@ const MainRouter = ({ token, userId, role, onLogin, onLogout }) => {
   return (
     <>
       {!isHomePage && <Navbar onLogout={onLogout} token={token} role={role} />}
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
+
         <Route
           path="/login"
           element={
@@ -65,6 +66,7 @@ const MainRouter = ({ token, userId, role, onLogin, onLogout }) => {
               : <Login onLogin={onLogin} />
           }
         />
+
         <Route
           path="/dashboard"
           element={
@@ -73,6 +75,7 @@ const MainRouter = ({ token, userId, role, onLogin, onLogout }) => {
               : <Navigate to="/login" />
           }
         />
+
         <Route
           path="/user-dashboard"
           element={
@@ -81,17 +84,16 @@ const MainRouter = ({ token, userId, role, onLogin, onLogout }) => {
               : <Navigate to="/login" />
           }
         />
+
         <Route
           path="/messages"
           element={token ? <MessagingPage token={token} /> : <Navigate to="/login" />}
         />
 
-<Route
-  path="/activity-log"
-  element={token && role === 'business' ? <ActivityLogPage token={token} /> : <Navigate to="/login" />}
-/>
-
-
+        <Route
+          path="/activity-log"
+          element={token && role === 'business' ? <ActivityLogPage token={token} /> : <Navigate to="/login" />}
+        />
       </Routes>
     </>
   );
